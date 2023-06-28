@@ -16,4 +16,19 @@
             inner join users as u
             on t.user_id = u.id
     </select>
+
+    <select id="findByKeyword" resultType="TodoJoinUser" parameterType="String"> <!--변수 선언할 때 사용하는데 받아올 타입도 적어야함-->
+        select
+        t.id,
+        t.create_at,
+        t.content,
+        t.checked,
+        u.name,
+        u.id uid,
+        t.heart
+        from todos as t
+        inner join users as u
+        on t.user_id = u.id
+        where content like #{keyword}
+    </select>
 </mapper>

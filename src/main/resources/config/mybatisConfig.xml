@@ -3,7 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <typeAliases>
+    <typeAliases>        <!-- 이 타입을 받아다 쓴다-->
         <typeAlias type="com.naver.user.domain.entity.TodoJoinUser" alias="TodoJoinUser" />
+        <typeAlias type="com.naver.user.domain.entity.User" alias="User" />
+        <typeAlias type="com.naver.user.domain.request.LoginRequest" alias="LoginRequest"/>
     </typeAliases>
+
 </configuration>

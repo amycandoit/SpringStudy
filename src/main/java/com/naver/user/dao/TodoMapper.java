@@ -17,4 +17,7 @@ public class TodoMapper {
     public List<TodoJoinUser> findAll() {
         return SessionTemplate.selectList("todo.findAll");
     }
+    public List<TodoJoinUser> findByKeyword(String keyword) {
+        return SessionTemplate.selectList("todo.findByKeyword", "%"+keyword+"%");
+    }
 }
