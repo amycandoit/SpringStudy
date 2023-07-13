@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.example</groupId>
+  <artifactId>project_01</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>project_01 Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <!-- 애플리케이션의 컨텍스트(ApplicationContext)를 제공하고, 의존성 주입(Dependency Injection)을 지원하여 객체 간의 관계를 관리,
+    ApplicationContext를 사용하여 빈(bean)의 생성과 관리, 의존성 주입 등을 수행-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>5.3.20</version>
+    </dependency>
+    <!--Spring MVC(Model-View-Controller) 아키텍처를 기반으로하는 웹 애플리케이션의 컨트롤러(Controller) 부분을 개발할 때 이 모듈을 사용
+     웹 요청과 응답 처리를 위한 기능을 제공하며, 주요 기능으로는 URL 매핑, 요청 파라미터 처리, 세션 관리, 뷰(View) 선택등이 있다-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>5.3.20</version>
+    </dependency>
+    <!--데이터베이스와의 상호 작용을 쉽게 처리.데이터베이스 연결 설정, 데이터 액세스 객체(DAO)의 생성과 관리, 트랜잭션 관리 등을 Spring의 기능과 함께 사용-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>5.3.20</version>
+    </dependency>
+    <!--데이터베이스 연결 풀링을 구현하기 위해 사용. 데이터베이스 연결을 관리하고 효율적인 연결 관리를 위해 연결을 재사용 가능-->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-dbcp2</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+    <!--MyBatis는 SQL 매핑을 위한 자바 퍼시스턴스 프레임워크로, SQL과 자바 객체 간의 매핑을 지원.  MyBatis를 Spring 애플리케이션과 통합하여
+    MyBatis의 세션 관리와 트랜잭션 관리를 Spring에서 수행할 수 있게 해준다.-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>2.0.7</version>
+    </dependency>
+    <!--MyBatis는 SQL 매핑과 관련된 기능을 제공, 데이터베이스와의 상호 작용을 위한 SQL 문 실행, 결과 매핑, 트랜잭션 관리 등을 처리-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.5.11</version>
+    </dependency>
+    <!--JDBC API를 사용하여 MySQL 데이터베이스와 상호 작용할 수 있도록 해줌-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.33</version>
+    </dependency>
+    <!--JSP는 서버 측 웹 프로그래밍을 위한 기술로, 동적인 웹 페이지 생성을 위해 사용. 이 API는 JSP 페이지를 컴파일하고 실행하기 위한 클래스와 인터페이스를 제공-->
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>jsp-api</artifactId>
+      <version>2.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <!--Servlet은 동적인 웹 애플리케이션을 개발하기 위한 기술로, 클라이언트의 요청을 처리하고 응답을 생성하는 서버 측 컴포넌트.
+    API는 Servlet 클래스와 인터페이스를 제공하여 서블릿 컨테이너에서 서블릿을 실행하고 관리할 수 있도록 함.-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <!--JSTL은 JSP 페이지에서 반복문, 조건문, 데이터 출력 등을 처리하기 위한 태그 라이브러리-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <!--JUnit은 자바 테스트 코드 작성을 위한 유닛 테스트 프레임워크로, 단위 테스트를 작성하고 실행하는 데 사용-->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+  <build>
+    <finalName>project_01</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.5.1</version>
+        <configuration>
+          <source>11</source>
+          <target>11</target>
+          <compilerArgument>-Xlint:all</compilerArgument>
+          <showWarnings>true</showWarnings>
+          <showDeprecation>true</showDeprecation>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

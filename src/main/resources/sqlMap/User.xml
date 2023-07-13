@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.UserMapper">
+    <select id="user" resultType="User">
+        select
+        *
+        from user
+    </select>
+
+    <select id="findByUserSeq" parameterType="int" resultType="User">
+        select * from user where user_seq = #{user_seq};
+    </select>
+
+    <update id="update" parameterType="com.test.domain.dto.UserUpdate">
+        update user
+        set id = #{id},
+        password = #{password},
+        name = #{name},
+        address = #{address},
+        phone = #{phone}
+        where user_seq = #{user_seq}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        Delete from user where user_seq = #{user_seq}
+    </delete>
+
+    <select id="login" resultType="User">
+        select * from user where id = #{id} and password = #{password}
+    </select>
+
+    <insert id="signup" keyProperty="user_seq">
+        insert into user(id,password,name,address,phone) values (#{id},#{password},#{name},#{address},#{phone})
+    </insert>
+</mapper>
