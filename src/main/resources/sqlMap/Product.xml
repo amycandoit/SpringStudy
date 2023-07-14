@@ -3,10 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.test.dao.ProductMapper">
-    <select id="productView">
+
+    <select id="product" resultType="Product">
         select * from product
     </select>
 
-
+    <insert id="addProduct" keyProperty="product_seq">
+        insert into product(name,price,count) values (#{name},#{price},#{count})
+    </insert>
 
 </mapper>

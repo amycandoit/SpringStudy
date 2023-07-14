@@ -11,17 +11,16 @@
         <td>Name</td>
         <td>Price</td>
         <td>Count</td>
-
     </tr>
-    <c:forEach items="${}" var="">
+    <c:forEach items="${products}" var="product">
     <tr>
-        <td>${user.user_seq}</td>
-        <td>${user.name}</td>
-        <td>${user.price}</td>
-        <td>${user.count}</td>
+        <td>${product.user_seq}</td>
+        <td>${product.name}</td>
+        <td>${product.price}</td>
+        <td>${product.count}</td>
 
-        <td><a href="/pUpdate/${user.user_seq}">수정</a></td>
-        <td><a href="/pDelete/${user.user_seq}">삭제</a></td>
+        <td><a href="/productUpdate/${product.user_seq}">수정</a></td>
+        <td><a href="/productDelete/${product.user_seq}">삭제</a></td>
     </tr>
 
     </c:forEach>

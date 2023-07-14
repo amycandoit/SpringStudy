@@ -11,7 +11,7 @@
     <title>Signup</title>
 </head>
 <body>
-    <form method="post" action="/signup">
+    <form method="post" action="signup">
         <input type="text" name="id" placeholder="id">
         <input type="text" name="password" placeholder="password">
         <input type="text" name="name" placeholder="name">

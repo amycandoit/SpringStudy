@@ -7,10 +7,7 @@ import com.test.domain.request.SignupRequest;
 import com.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -30,15 +27,15 @@ public class UserController {
     public ModelAndView getUserPage(ModelAndView mav) {
         List<User> users = userService.user();
         mav.addObject("users", users);
-        mav.setViewName("/user");
+        mav.setViewName("user/user");
         return mav;
     }
-    @GetMapping("/update/{user_seq}")
+    @GetMapping("update/{user_seq}")
     public ModelAndView getUpdatePage(ModelAndView mav, @PathVariable("user_seq") Integer user_seq) {
         User user = userService.findByUserSeq(user_seq);
 
         mav.addObject("user", user);
-        mav.setViewName("/update");
+        mav.setViewName("user/update");
         return mav;
     }
 
@@ -59,9 +56,9 @@ public class UserController {
         return mav;
     }
 
-    @GetMapping("login")
+    @GetMapping("/login")
     public String getLoginPage() {
-        return "/login";
+        return "user/login";
     }
     @PostMapping("/login")
     public ModelAndView postLoginPage(@ModelAttribute LoginRequest loginRequest, ModelAndView mav) {
@@ -76,7 +73,7 @@ public class UserController {
 
     @GetMapping("/signup")
     public String getSignupPage() {
-        return "signup";
+        return "user/signup";
     }
 
     @PostMapping("/signup")

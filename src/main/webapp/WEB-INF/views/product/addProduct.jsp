@@ -11,6 +11,11 @@
     <title>Add Product</title>
 </head>
 <body>
-
+<form method="post" action="/addProduct">
+    <input type="text" name="id" placeholder="name">
+    <input type="text" name="password" placeholder="price">
+    <input type="text" name="name" placeholder="count">
+    <input type="submit" value="상품추가">
+</form>
 </body>
 </html>

@@ -8,10 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Product</title>
 </head>
 <body>
-<a href="/user">1. 상품목록</a>
-<a href="#">2. 상품추가</a>
+<a href="/productList">1. 상품목록</a>
+<a href="/addProduct">2. 상품추가</a>
 </body>
 </html>
