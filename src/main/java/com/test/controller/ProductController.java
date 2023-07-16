@@ -1,14 +1,12 @@
 package com.test.controller;
 
+import com.test.domain.dto.ProductUpdate;
 import com.test.domain.entity.Product;
 import com.test.domain.request.AddProductRequest;
 import com.test.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -32,7 +30,6 @@ public class ProductController {
         return mav;
     }
 
-
     @GetMapping("/addProduct")
     public String getAddProductPage() {
         return "/product/addProduct";
@@ -43,6 +40,30 @@ public class ProductController {
             mav.setViewName("redirect:/product");
         } else {
             mav.setViewName("redirect:/addProduct");
+        }
+        return mav;
+    }
+    @GetMapping("/productUpdate/{product_seq}")
+    public ModelAndView getProductUpdatePage(ModelAndView mav
+            , @PathVariable("product_seq") Integer product_seq) {
+        Product product = productService.findByProductSeq(product_seq);
+        mav.addObject("product", product);
+        mav.setViewName("product/productUpdate");
+        return mav;
+    }
+
+    @PostMapping("/productUpdate")
+    public ModelAndView PostProductUpdatePage(@ModelAttribute ProductUpdate productUpdate, ModelAndView mav) {
+        if (productService.productUpdate(productUpdate) == 1) {
+            mav.setViewName("redirect:/productList");
+        }
+        return mav;
+    }
+
+    @GetMapping("/productDelete/{product_seq}")
+    public ModelAndView getProductDeletePage(@PathVariable("product_seq") int product_seq, ModelAndView mav) {
+        if (productService.productDelete(product_seq) == 1) {
+            mav.setViewName("redirect:/productList");
         }
         return mav;
     }

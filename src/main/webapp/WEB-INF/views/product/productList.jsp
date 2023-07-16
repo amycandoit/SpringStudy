@@ -14,13 +14,13 @@
     </tr>
     <c:forEach items="${products}" var="product">
     <tr>
-        <td>${product.user_seq}</td>
+        <td>${product.product_seq}</td>
         <td>${product.name}</td>
         <td>${product.price}</td>
         <td>${product.count}</td>
 
-        <td><a href="/productUpdate/${product.user_seq}">수정</a></td>
-        <td><a href="/productDelete/${product.user_seq}">삭제</a></td>
+        <td><a href="/productUpdate/${product.product_seq}">수정</a></td>
+        <td><a href="/productDelete/${product.product_seq}">삭제</a></td>
     </tr>
 
     </c:forEach>

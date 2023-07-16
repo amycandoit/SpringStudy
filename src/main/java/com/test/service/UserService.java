@@ -26,6 +26,7 @@ public class UserService {
     public User findByUserSeq(int user_seq) {
         return userMapper.findByUserSeq(user_seq);
     }
+
     public int delete (int user_seq) {
         return userMapper.delete(user_seq);
     }

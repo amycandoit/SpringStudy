@@ -13,5 +13,6 @@
 <body>
 <a href="/productList">1. 상품목록</a>
 <a href="/addProduct">2. 상품추가</a>
+<a href="/#">3. 내장바구니</a>
 </body>
 </html>

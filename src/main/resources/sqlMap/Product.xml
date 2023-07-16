@@ -12,4 +12,19 @@
         insert into product(name,price,count) values (#{name},#{price},#{count})
     </insert>
 
+    <select id="findByProductSeq" parameterType="int" resultType="Product">
+        select * from product where product_seq = #{product_seq};
+    </select>
+
+    <update id="productUpdate" parameterType="com.test.domain.dto.ProductUpdate">
+        update product
+        set name = #{name},
+        price = #{price},
+        count = #{count}
+        where product_seq = #{product_seq}
+    </update>
+
+    <delete id="productDelete" parameterType="int">
+        Delete from product where product_seq = #{product_seq};
+    </delete>
 </mapper>

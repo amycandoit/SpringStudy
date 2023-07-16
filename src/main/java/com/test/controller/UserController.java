@@ -48,7 +48,7 @@ public class UserController {
         return mav;
     }
     @GetMapping("/delete/{user_seq}")
-    public ModelAndView postDeletePage(
+    public ModelAndView getDeletePage(
             @PathVariable("user_seq") int user_seq, ModelAndView mav) {
         if (userService.delete(user_seq) == 1) {
             mav.setViewName("redirect:/user");
